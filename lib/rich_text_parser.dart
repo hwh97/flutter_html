@@ -15,6 +15,7 @@ typedef CustomTextStyle = TextStyle Function(
 typedef CustomTextAlign = TextAlign Function(dom.Element elem);
 typedef CustomEdgeInsets = EdgeInsets Function(dom.Node node);
 typedef OnLinkTap = void Function(String url);
+typedef OnLinkLongTap = void Function(String url);
 typedef OnImageTap = void Function(String source);
 
 const OFFSET_TAGS_FONT_SIZE_FACTOR =

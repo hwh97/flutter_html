@@ -9,6 +9,7 @@ class HtmlOldParser extends StatelessWidget {
   HtmlOldParser({
     @required this.width,
     this.onLinkTap,
+    this.onLinkLongTap,
     this.renderNewlines = false,
     this.customRender,
     this.blockSpacing,
@@ -23,6 +24,7 @@ class HtmlOldParser extends StatelessWidget {
 
   final double width;
   final OnLinkTap onLinkTap;
+  final OnLinkLongTap onLinkLongTap;
   final bool renderNewlines;
   final CustomRender customRender;
   final double blockSpacing;
@@ -152,6 +154,12 @@ class HtmlOldParser extends StatelessWidget {
                 ),
                 style: linkStyle,
               ),
+              onLongPress: () {
+                if (node.attributes.containsKey('href') && onLinkLongTap != null) {
+                  String url = node.attributes['href'];
+                  onLinkLongTap(url);
+                }
+              },
               onTap: () {
                 if (node.attributes.containsKey('href') && onLinkTap != null) {
                   String url = node.attributes['href'];

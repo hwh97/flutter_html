@@ -14,6 +14,7 @@ class Html extends StatelessWidget {
     this.backgroundColor,
     this.defaultTextStyle,
     this.onLinkTap,
+    this.onLinkLongTap, // only use when useRichText is false
     this.renderNewlines = false,
     this.customRender,
     this.customEdgeInsets,
@@ -37,6 +38,7 @@ class Html extends StatelessWidget {
   final Color backgroundColor;
   final TextStyle defaultTextStyle;
   final OnLinkTap onLinkTap;
+  final OnLinkLongTap onLinkLongTap;
   final bool renderNewlines;
   final double blockSpacing;
   final bool useRichText;
@@ -84,6 +86,7 @@ class Html extends StatelessWidget {
             : HtmlOldParser(
                 width: width,
                 onLinkTap: onLinkTap,
+                onLinkLongTap: onLinkLongTap,
                 renderNewlines: renderNewlines,
                 customRender: customRender,
                 html: data,
